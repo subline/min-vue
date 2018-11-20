@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-text="obj.text" name='text'></li>
+            <li v-html="html"></li>
+            <li :title="html"></li>
+            <li @click="handlerClick"></li>
+            <li>{{msg}}</li>
+        </ul>
+    </div>
+    <script>
+        window.lcq = new myVue({
+            el: '#app',
+            data: {
+                text: '我是文本',
+                html: '我是html片段',
+                msg: '我是插值表达式',
+                obj: {
+                    text: '我是文本',
+                    html: '我是html片段',
+                    msg: '我是插值表达式',
+                }
+            },
+            methods: {
+                handlerClick() {
+                    console.log('click')
+                }   
+            }
+        })
+        console.log(lcq)    
+    </script>
+</body>
+</html>
